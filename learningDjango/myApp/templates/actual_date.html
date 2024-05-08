@@ -1,0 +1,14 @@
+<br>
+<hr>
+<br>
+<h1>{{greetings}} {{name}}</h1>
+<h1>We're at 2024</h1>
+
+<p>Years until 2050:</p>
+    <ul>
+        {% for year in years  %}
+            {% if year|divisibleby:2 != 0 %}
+                <li>{{year}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>

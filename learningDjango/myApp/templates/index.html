@@ -1,3 +1,28 @@
-<h1> Home </h1>
-<p>Years until 2050:</p>
-<ul>
+{% extends "layout.html" %}
+
+{% block title %}
+    Yoy are in the index page
+{% endblock  %}
+
+{% block content %}
+    <h1 class="title"> {{title}} </h1>
+
+    <p> {{my_variable}} </p>
+
+    {% if name  and name == 'Diego Guzmán' %}
+        <p> {{name}} </p>
+    {% else %}
+        <strong>The name doesn't exist or it doesn't match </strong>
+    {% endif %}
+
+    <h3>List of programming languages</h3>
+
+    <ul>
+        {% for language in languages %}
+            <li>{{language}} {{forloop.revcounter}}</li>
+        {% empty %}
+            <p>THERE'S NO LANGUAGES TO SHOW</p>
+        {% endfor %}
+    </ul>
+    {% include "actual_date.html"  with greetings="Hello world, from templates"%}
+{% endblock  %}

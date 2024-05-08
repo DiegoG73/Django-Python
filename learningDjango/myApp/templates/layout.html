@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock  %}
+        | Diego Guzmán
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+    <!-- Cabecera de la página -->
+    <header>
+        <div id="logotype">
+            <!-- Logo de Django -->
+            <img src="{% static "images/logo.png" %}" alt="">
+            <h1>
+                Website with Django
+            </h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url "home" %}">Home</a>
+            </li>
+            <li>
+                <a href="{% url "hello_world" %}">Hello World</a>
+            </li>
+            <li>
+                <a href="{% url "page" %}">Test page</a>
+            </li>
+            <li>
+                <a href="{% url "contact" "Diego" "Guzmán" %}">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="bar">
+        <span class="left-corner"></span>
+        <span class="bar-stuff"></span>
+        <span class="right-corner"></span>
+    </div>
+
+    <div id="content">
+
+        <div class="box">
+            <h2 class="title">
+                Test title
+            </h2>
+            {% block content %}
+                <strong>Original content block</strong>
+            {% endblock %}
+        </div>
+
+    </div>
+
+<footer>
+    Master on Python &copy; Diego Guzmán - {% now "d/m/Y" %}
+</footer>
+<hr/>
+</body>
+</html>

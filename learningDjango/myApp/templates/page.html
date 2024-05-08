@@ -1,2 +1,40 @@
-<h1> Page of my web </h1>
-<p> created by Diego Guzmán </h1>
+{% extends "layout.html" %}
+
+{% block title %} Test page {% endblock %}
+
+{% block content  %}
+    <h1 class="title"> Page of my web </h1>
+    <p> {{ "created by Diego Guzmán ñññ" | cut:"ñ" }} </h1>
+
+    <p>
+        {{text|default:"There´s nothing here"}}
+    </p>
+    
+    <p>
+        {{list|last}}
+    </p>
+
+    <p>
+        {{list|join:", "}}
+    </p>
+
+    <p>
+        {{list|length}}
+    </p>
+
+    <p>
+        {{list|random}}
+    </p>
+
+    <p>
+        {{"test text"|length}}
+    </p>
+
+    <p>
+        {{"test text"|upper}}
+    </p>
+
+    <p>
+        {{"test text"|lower}}
+    </p>
+{% endblock  %}
