@@ -1,4 +1,6 @@
+
 {% extends "layout.html" %}
+{% load filters %}
 
 {% block title %} Test page {% endblock %}
 
@@ -35,6 +37,14 @@
     </p>
 
     <p>
-        {{"test text"|lower}}
+        {{"TEST TEXT"|lower}}
+    </p>
+
+    <p>
+        {{"<h1>Text</h1> <strong>Test</strong>"|striptags|wordcount}}
+    </p>
+
+    <p>
+        {{"Diego Guzmán"|greetings|safe}}
     </p>
 {% endblock  %}
